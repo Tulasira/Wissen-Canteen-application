@@ -745,3 +745,7 @@ variable "scale_in_cooldown" {
 variable "scale_out_cooldown" {
   type = number
 }
+variable "domain_name" {
+  description = "Root domain name for the application"
+  type        = string
+}
