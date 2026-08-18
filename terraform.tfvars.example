@@ -1,0 +1,43 @@
+# Copy to terraform.tfvars, or use one of environments/*.tfvars with
+# `terraform apply -var-file=environments/prod.tfvars`.
+# terraform.tfvars is gitignored — never commit real values here.
+
+project_name = "wissen-canteen"
+environment  = "prod"
+aws_region   = "ap-south-1"
+
+vpc_cidr             = "10.20.0.0/16"
+availability_zones   = ["ap-south-1a", "ap-south-1b"]
+public_subnet_cidrs  = ["10.20.0.0/24", "10.20.1.0/24"]
+private_subnet_cidrs = ["10.20.10.0/24", "10.20.11.0/24"]
+single_nat_gateway   = true
+
+route53_zone_id = "Z0123456789ABCDEFGHIJ"
+api_domain_name = "api.canteen.example.com"
+web_domain_name = "canteen.example.com"
+
+container_port     = 3000
+health_check_path  = "/health"
+ecs_task_cpu       = 512
+ecs_task_memory    = 1024
+ecs_desired_count  = 1
+enable_autoscaling = false
+
+db_engine_version     = "16.4"
+db_instance_class     = "db.t4g.micro"
+db_allocated_storage  = 20
+db_name               = "canteen"
+db_username           = "canteen_admin"
+enable_multi_az        = false
+db_deletion_protection = false
+db_skip_final_snapshot = true
+
+enable_elasticache = false
+
+# Prefer TF_VAR_azure_ad_client_id / TF_VAR_azure_mail_client_secret env vars
+# or a CI secret store over putting these in any tfvars file, gitignored or not.
+# azure_ad_client_id       = ""
+# azure_mail_client_secret = ""
+
+log_retention_days       = 30
+alarm_notification_email = "devops@example.com"
