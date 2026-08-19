@@ -745,7 +745,29 @@ variable "scale_in_cooldown" {
 variable "scale_out_cooldown" {
   type = number
 }
+
 variable "domain_name" {
   description = "Root domain name for the application"
+  type        = string
+}
+
+
+##################################################
+# ACM
+##################################################
+
+variable "acm_domain_name" {
+  description = "Primary domain name for the ACM certificate"
+  type        = string
+}
+
+variable "acm_subject_alternative_names" {
+  description = "Additional domain names for the ACM certificate"
+  type        = list(string)
+  default     = []
+}
+
+variable "route53_zone_id" {
+  description = "Route 53 hosted zone ID used for ACM DNS validation"
   type        = string
 }

@@ -2,6 +2,20 @@ output "vpc_id" {
   value = module.vpc.vpc_id
 }
 
+######################################################
+# ACM
+######################################################
+
+output "acm_certificate_arn" {
+  description = "ARN of the validated ACM certificate"
+  value       = module.acm.certificate_arn
+}
+
+output "acm_certificate_domain_name" {
+  description = "Primary domain name of the ACM certificate"
+  value       = module.acm.certificate_domain_name
+}
+
 output "public_subnet_ids" {
   value = module.subnets.public_subnet_ids
 }

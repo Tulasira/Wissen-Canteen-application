@@ -9,3 +9,8 @@ output "bucket_arn" {
 output "bucket_name" {
   value = var.enabled ? aws_s3_bucket.this[0].bucket : null
 }
+
+output "bucket_regional_domain_name" {
+  description = "Regional domain name used by services such as CloudFront"
+  value       = var.enabled ? aws_s3_bucket.this[0].bucket_regional_domain_name : null
+}
