@@ -57,7 +57,8 @@ module "ecs_task_definition" {
   environment  = var.environment
 
   task_execution_role_arn = module.ecs_task_execution_role.task_execution_role_arn
-  task_role_arn           = module.ecs_task_execution_role.task_execution_role_arn
+
+  task_role_arn = module.iam.task_role_arn
 
   container_name  = var.container_name
   container_image = var.container_image

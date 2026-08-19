@@ -3,15 +3,15 @@ variable "name" {
   type        = string
 }
 
-variable "domain_name" {
-  description = "Custom domain served by the distribution"
-  type        = string
-}
+# variable "domain_name" {
+#   description = "Custom domain served by the distribution"
+#   type        = string
+# }
 
-variable "certificate_arn" {
-  description = "ARN of an ACM certificate issued in us-east-1"
-  type        = string
-}
+# variable "certificate_arn" {
+#   description = "ARN of an ACM certificate issued in us-east-1"
+#   type        = string
+# }
 
 variable "origin_domain_name" {
   description = "Regional domain name of the S3 origin"
